@@ -1,24 +1,17 @@
-# README
+## Cubodak
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo : https://cubodak3d.herokuapp.com/
 
-Things you may want to cover:
+Tecnologías ocupadas: `Ruby on rails 6, bootstrap 5, postgreSql, s3 AWS, google cloud signup`
 
-* Ruby version
+Funcionalidades implementadas:
+1. Login con google
+2. Crear cuenta diractamente con la pagina
+3. Subir productos con especificaciones básicas
+4. Carrito de compra para usuarios registrados
+5. Cotización resumen con productos en carrito
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Funcionalidades no implementadas: 
+1. Contacto vía mail con comprador y admin.
+2. Pestaña para admin para ver cotizaciónes solicitadas. 
+3. Diferenciación de usuarios (diseñador-admin-comprador)
