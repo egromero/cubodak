@@ -1,0 +1,35 @@
+
+<body class="text-center">
+    <main class="signin-form">
+        <h3>Crea tu cuenta CUBODAK</h3>
+        <form id="signinForm">
+            <div class="form-floating">
+                <input type="email" name="email" class="form-control" id="emailRegister" placeholder="email" />
+                <label for="emailRegister">Correo Electrónico</label>
+            </div>
+
+            <div class="form-floating">
+                <input class="form-control" name="username" id="usernameRegister" placeholder="Usuario" />
+                <label for="usernameInput">Nombre de usuario</label>
+                <div id="feedbackUsername" class="invalid-feedback"></div>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="passwordRegister" placeholder="Password" />
+                <label for="passwordRegister">Contraseña</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="passwordRegisterConfirmation" placeholder="Password" />
+                <label for="passwordRegisterConfirmation">Repita Contraseña</label>
+            </div>
+            <div>
+                <input id="terms" type="checkbox" /> Aceptas los
+                <a href="termsofuse.html">terminos y condiciones de uso</a>
+            </div>
+            <span id="feedbackError" class="error-feedback mb-3"></span>
+            <button id="sendSignup" class="btn btn-outline-primary btn-large" type="button" onclick="window.sendSignUp();">
+                Registrarse
+            </button>
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="/">Inicia Sesión</a></p>
+    </main>
+</body>

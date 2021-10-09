@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cubodak</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="navbar-custom">
+      <div style="width:100px">
+        <a class="navbar-logo" href="/">
+          <%= show_svg('logo.svg') %>
+        </a>
+      </div>
+      <a href="/products/new" class="link-navbar">
+          Nuevo producto
+        </a>
+      <div class="flex-row-div" style="justify-content:flex-end; width:70%;align-items:center;">
+        <a href="https://www.facebook.com/Cubodak3D-100875692027596/"><%= image_tag "fb.png", class:"navbar-button" %></a>
+        <a><%= image_tag "wa.png", class:"navbar-button" %></a>
+        <a href="https://www.instagram.com/cubodak3d/"><%= image_tag "ig.png", class:"navbar-button" %></a>
+      </div>
+      <div class="flex-row-div" style="width: 30%;justify-content: flex-end;align-items:center;margin-right:1rem">
+        <a><%= image_tag "prof.png", class:"navbar-button" %></a>
+        <a onClick="window.getCart()"><%= image_tag "cart.png", class:"navbar-button" %></a>
+      </div>
+    </div>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+
+

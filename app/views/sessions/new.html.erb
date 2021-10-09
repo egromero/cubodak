@@ -1,0 +1,37 @@
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<body class="text-center">
+  <div id="navbar-placeholder"></div>
+    <main class="signin-form"> 
+      <span id="alert-sigin"></span>
+        <h3 class="mb-3">Ingresar</h3>
+        <form id="signinForm" action="/auth/signin" method="post">
+            <div class="form-floating ">
+                <input class="form-control" id="usernameInput" placeholder="Usuario">
+                <label for="usernameInput">Usuario</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                <label for="passwordInput">Contraseña</label>
+              </div>
+            <button id="sendSignin" class="btn btn-outline-primary btn-large" type="button" onclick="window.signIn();">Ingresar</button>
+        </form>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+<div class="google-btn">
+  <a href=<%=auth_googleLogin_path%>>
+        <%=image_tag ("btn_google.png"), :class => "google-icon"%>
+        <span class="btn-text">Ingresar con Google</span>
+        </a> 
+</div>
+
+ 
+        <p>¿No tienes una cuenta? <a href="signup.html">Crea una</a></p>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </main>
+</body>

@@ -1,0 +1,70 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<div class="container py-3">
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+      <!-- Carousel start -->
+      <div class="col-md-5">
+        <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+          <%active ="active"%>
+          <%for i in 0..@product.images.count-1%>
+            <li data-target="#CarouselTest" data-slide-to=<%=i%> class=<%=active%>></li>
+            <%active =""%>
+          <%end%>
+
+          </ol>
+          <div class="carousel-inner" style="padding:3%;">
+          <%active = "active"%>
+          <%@product.images.each do |img| %>
+            <div class="carousel-item <%=active%>">
+              <%= image_tag img, class:"d-block" %>  
+            </div>
+            <%active=''%>
+          <%end%>            
+            <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+            <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+          </div>
+        </div>
+      </div>
+      <!-- End of carousel -->
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+        <div class="flex-row-div">
+          <p class="card-title"><%=@product.name.upcase%></p>
+          <p class="price">$<%=@product.final_price%> </p>
+        </div>
+        <p class="card-sub-title"><%=@product.name%></p>
+          <p class="card-text">
+          <%=@product.description%>
+          </p>
+          <br>
+            <div class="flex-row-div" style="justify-content:flex-start;">
+              <p class="label">Elige cantidad:</p>
+              <input id="product-id" value =<%=@product.id%> name="product_id" hidden>
+              <input id="product-quantity" class="quantity" type="number" value="1" name="quantity">
+            </div>
+            <button class="styled-btn" type="button" onClick ="window.addToBag();">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blurry-div">
+  </div>
+<style>
+body { 
+ background-image: url(<%= asset_path 'product.jpeg' %>);
+ background-size: cover;
+}
+</style>

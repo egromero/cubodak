@@ -1,0 +1,60 @@
+<main role="main">
+  <section class="jumbotron banner">
+    <div class="banner-header">
+
+      <div class="container-img">
+        <%= image_tag "banner-img.png" %>
+        <a class="btn-design">Diseños</a>
+      </div>
+
+      <div class="contanier-header-text">
+        <h1 class="heading">UN PUNTO DE ENCUENTRO, ENTRE DISEÑADORES Y</h1>
+        <h1 class="heading2">USUARIOS</h1>
+        <%if !logged_in?%>
+        <div class="login-div">
+          <span id="alert-sigin"></span>
+          <h3 class="login-title">Ingresar</h3>
+          <form id="signinForm" action="/auth/signin" method="post">
+            <div class="form-floating ">
+              <input class="form-control" id="usernameInput" placeholder="Usuario">
+              <label for="usernameInput">Usuario</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+              <label for="passwordInput">Contraseña</label>
+            </div>
+            <button id="sendSignin" class="styled-btn" type="button" onclick="window.signIn();" style="width:100%">Ingresar</button>
+          </form>
+          <p class="text-gray"> O inicia sesión con google</p>
+          <div class="google-btn">
+            <a class="link-google" href=<%=auth_googleLogin_path%>>
+                <%=image_tag ("btn_google.png"), :class => "google-icon"%>
+                <span class="btn-text">Ingresar con Google</span>
+            </a> 
+          </div>
+          <p class="text-gray" style="margin:1rem 0"> No tienes cuenta? <a href="/auth/signup" class="text-orange">Crea una</a></p>
+        </div>
+        <%else%>
+        <p style="font-family:'codebold';font-size:35px;color:white;margin-top:5rem;">Hola <%=Emoji.find_by_alias("wave").raw%> <%=current_user.name.split(" ").first%></p>
+        <%end%>
+      </div>
+    </div>
+  </section>
+<div class="container">
+  <div class="row" id="container-album">
+    <%=render @products%>
+  </div>
+</div>
+<div>
+<%=will_paginate @products , renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+</div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+    <a href="#">Back to top</a>
+    </p>
+  </div>
+</footer>
+  

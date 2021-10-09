@@ -1,0 +1,48 @@
+
+<div class="container py-3">
+  <div class="card">
+    <div class="row ">
+      <div style="padding: 1% 5%;">
+        <div class="card-block px-6">
+          <p class="card-title">Productos</p>
+          <hr>
+          <div class="flex-row-div">
+            <div class="flex-column-div" style="width:100%;">
+                <div class="flex-row-div" style="font-weight:700;">
+                        <p style="width:85px;"></p>
+                        <p>Producto</p>
+                        <p>Descripción</p>
+                        <p>Cantidad</p>
+                        <p>Precio</p>
+                    </div>
+                    <%@shoppingCartProducts.each do |product|%>
+                    <div class="flex-row-div">
+                        <p><%= image_tag product.product.images[0], class:"miniature"%></p>
+                        <p class="product-info" style="max-width:300px"><%=product.product.name%></p>
+                        <p class="product-info"><%=product.product.description%></p>
+                        <p class="product-info"><%=product.quantity%></p>
+                        <p class="product-info">$<%=product.product.final_price%></p>
+                    </div>
+                    <%end%>
+                    
+                </div>
+          </div>
+          <div class="flex-column-div">
+          <p class="card-title">Total</p>
+          <p style="font-weight:600;">Valor total cotización:</p> <p>$<%=@final_price%></p>
+          </div>
+          <div class="flex-row-div" style="justify-content:center">
+          <a class="styled-btn btn-red">Confirmar</a>
+          <a class="styled-btn" href="/">Seguir comprando</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+body { 
+ background-image: url(<%= asset_path 'product.jpeg' %>);
+ background-size: cover;
+}
+</style>
